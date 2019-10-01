@@ -42,11 +42,11 @@
             this.btExit = new System.Windows.Forms.Button();
             this.tbID = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.numAddress = new System.Windows.Forms.TextBox();
+            this.tbAddress = new System.Windows.Forms.TextBox();
             this.numDay = new System.Windows.Forms.NumericUpDown();
             this.numMonth = new System.Windows.Forms.NumericUpDown();
             this.numYear = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbJob = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numYear)).BeginInit();
@@ -145,6 +145,7 @@
             this.btDK.TabIndex = 8;
             this.btDK.Text = "Đăng ký";
             this.btDK.UseVisualStyleBackColor = true;
+            this.btDK.Click += new System.EventHandler(this.BtDK_Click);
             // 
             // btNew
             // 
@@ -155,6 +156,7 @@
             this.btNew.TabIndex = 9;
             this.btNew.Text = "Nhập mới";
             this.btNew.UseVisualStyleBackColor = true;
+            this.btNew.Click += new System.EventHandler(this.BtNew_Click);
             // 
             // btEnd
             // 
@@ -165,6 +167,7 @@
             this.btEnd.TabIndex = 10;
             this.btEnd.Text = "Tổng kết";
             this.btEnd.UseVisualStyleBackColor = true;
+            this.btEnd.Click += new System.EventHandler(this.BtEnd_Click);
             // 
             // btExit
             // 
@@ -175,6 +178,7 @@
             this.btExit.TabIndex = 11;
             this.btExit.Text = "Thoát";
             this.btExit.UseVisualStyleBackColor = true;
+            this.btExit.Click += new System.EventHandler(this.BtExit_Click);
             // 
             // tbID
             // 
@@ -192,13 +196,13 @@
             this.tbName.Size = new System.Drawing.Size(1174, 49);
             this.tbName.TabIndex = 2;
             // 
-            // numAddress
+            // tbAddress
             // 
-            this.numAddress.Font = new System.Drawing.Font("Google Sans Display", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numAddress.Location = new System.Drawing.Point(346, 580);
-            this.numAddress.Name = "numAddress";
-            this.numAddress.Size = new System.Drawing.Size(1174, 49);
-            this.numAddress.TabIndex = 6;
+            this.tbAddress.Font = new System.Drawing.Font("Google Sans Display", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAddress.Location = new System.Drawing.Point(346, 580);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(1174, 49);
+            this.tbAddress.TabIndex = 6;
             // 
             // numDay
             // 
@@ -269,25 +273,31 @@
             0,
             0});
             // 
-            // comboBox1
+            // cbJob
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Google Sans Display", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(346, 710);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(1174, 49);
-            this.comboBox1.TabIndex = 7;
+            this.cbJob.Font = new System.Drawing.Font("Google Sans Display", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbJob.FormattingEnabled = true;
+            this.cbJob.Items.AddRange(new object[] {
+            "Lao công",
+            "IT",
+            "Designer",
+            "Giám đốc",
+            "Chủ tịch"});
+            this.cbJob.Location = new System.Drawing.Point(346, 710);
+            this.cbJob.Name = "cbJob";
+            this.cbJob.Size = new System.Drawing.Size(1174, 49);
+            this.cbJob.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1673, 1016);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbJob);
             this.Controls.Add(this.numYear);
             this.Controls.Add(this.numMonth);
             this.Controls.Add(this.numDay);
-            this.Controls.Add(this.numAddress);
+            this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.btExit);
@@ -329,11 +339,11 @@
         private System.Windows.Forms.Button btExit;
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.TextBox numAddress;
+        private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.NumericUpDown numDay;
         private System.Windows.Forms.NumericUpDown numMonth;
         private System.Windows.Forms.NumericUpDown numYear;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbJob;
     }
 }
 
