@@ -25,13 +25,17 @@ namespace W04_01
         private void InitTimer()
         {
             timer = new Timer();
-            timer.Interval = velocity;
+            timer.Interval = Math.Abs(velocity==0?1:velocity);
             timer.Tick += (sender, e) =>
             {
                 label.Location = new Point(label.Location.X + velocity, label.Location.Y);
-                if (label.Location.X > this.Width)
+                if (label.Location.X > this.Width && velocity>0)
                 {
                     label.Location = new Point(-label.Width, label.Location.Y);
+                }
+                if(label.Location.X+label.Width<0 && velocity < 0)
+                {
+                    label.Location = new Point(this.Width + label.Width, label.Location.Y);
                 }
             };
         }

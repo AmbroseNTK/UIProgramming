@@ -27,19 +27,40 @@ namespace W04_01
             adsBox1.Run();
 
             userList = new List<User>();
+            btEnd.Enabled = false;
+            btDK.Enabled = false;
+
+            tbID.TextChanged += DataChange;
+            tbName.TextChanged += DataChange;
+            numDay.ValueChanged += DataChange;
+            numMonth.ValueChanged += DataChange;
+            numYear.ValueChanged += DataChange;
+            tbAddress.TextChanged += DataChange;
+            cbJob.TextChanged += DataChange;
         }
 
-        public bool Validate()
+        private void DataChange(object sender, EventArgs e)
+        {
+            btDK.Enabled = DataValidate(false);
+        }
+
+        public bool DataValidate(bool withMessageBox = true)
         {
             if (tbID.Text == "")
             {
-                MessageBox.Show("Please enter ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                if (withMessageBox)
+                {
+                    MessageBox.Show("Please enter ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                    return false;
             }
             if (tbName.Text == "")
             {
-                MessageBox.Show("Please enter Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                if (withMessageBox)
+                {
+                    MessageBox.Show("Please enter Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                    return false;
             }
 
             try
@@ -48,18 +69,29 @@ namespace W04_01
             }
             catch
             {
-                MessageBox.Show("Invalid date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (withMessageBox)
+                {
+                    MessageBox.Show("Invalid date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
                 return false;
             }
 
             if (tbAddress.Text == "")
             {
-                MessageBox.Show("Please enter Address", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (withMessageBox)
+                {
+                    MessageBox.Show("Please enter Address", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 return false;
             }
             if (cbJob.Text == "")
             {
-                MessageBox.Show("Please select job title", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (withMessageBox)
+                {
+                    MessageBox.Show("Please select job title", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 return false;
             }
             return true;
@@ -67,7 +99,7 @@ namespace W04_01
 
         private void BtDK_Click(object sender, EventArgs e)
         {
-            if (Validate())
+            if (DataValidate())
             {
                 User user = new User()
                 {
@@ -80,7 +112,7 @@ namespace W04_01
                 userList.Add(user);
 
                 MessageBox.Show("Xin chúc mừng thành viên mới\n" + user, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                btEnd.Enabled = true;
             }
         }
 
@@ -94,6 +126,7 @@ namespace W04_01
             tbAddress.Text = "";
             cbJob.Text = "";
             tbID.Focus();
+
         }
 
         private void BtEnd_Click(object sender, EventArgs e)
@@ -104,6 +137,11 @@ namespace W04_01
         private void BtExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void TrackSpeed_Scroll(object sender, EventArgs e)
+        {
+            adsBox1.Velocity = trackSpeed.Value;
         }
     }
 }
